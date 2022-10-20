@@ -17,7 +17,7 @@
 > - **输入层**：采用考虑空间信息的卷积，则会产生大量的权重参数，但考虑到数据集数量较少，则很容易导致过拟合，因此只考率像素的波段信息，则输入层为20维张量。
 > - **隐层**：为使得网络足够复杂以能够表达关系信息，共设置结点数分别为40/25/10的3层隐层，激活函数分别为*Relu/Relu/Sigmoid*，前两个*Relu*可以起到增加训练效率的作用。
 > - **输出层和损失函数**：为像素级分类，即图像分割，输出层Softmax结构实现多分类，实际采用*log_softmax*，损失函数为负对数似然损失函数*NLLLoss*。公式如下: 
-$$log\_ softmax = \frac{e^{xi}}{\sum_{i}e^{xi}}~~~~NLLLoss = - \frac{1}{N}{\sum\limits_{k = 1}^{N}{y_{k}(log\_ softmax)}}$$
+$$log\\_ softmax = \frac{e^{xi}}{\sum_{i}e^{xi}}~~~~NLLLoss = - \frac{1}{N}{\sum\limits_{k = 1}^{N}{y_{k}(log\_ softmax)}}$$
 > - **训练优化方法**：采用动态梯度下降法momentum，将一段时间内的梯度向量进行了加权平均，一定程度上消除了更新过程中的不确定性因素（如摆动现象），增加训练效率。
 
 ## 4.关键步骤
@@ -28,3 +28,34 @@ $$log\_ softmax = \frac{e^{xi}}{\sum_{i}e^{xi}}~~~~NLLLoss = - \frac{1}{N}{\sum\
 
 >将训练集验证集的数据和标签转换为`pytorch.tensor`格式，同时注意数据必须为`float32`，标签必须为`long`，否则无法进行模型训练。
 ### 4.3	网络模型搭建
+- 定义SoftMax网络
+```
+class Net(nn.Module):
+    def __init__(self):
+        super(Net, self).__init__()
+        self.l1=nn.Linear(input_n,40)
+        self.l2=nn.Linear(40,25)
+        self.l3=nn.Linear(25,10)
+        self.l4=nn.Linear(10,output_n)
+
+    def forward(self,x):
+        a1=F.relu(self.l1(x))
+        a2=F.relu(self.l2(a1))
+        a3=F.sigmoid(self.l3(a2))
+        output=F.log_softmax(self.l4(a3), dim=1)
+        return output
+```
+- 优化器与损失函数
+```
+#优化器随机梯度下降 momentum动态梯度下降
+optimizer = torch.optim.SGD(model.parameters(), lr=lr,momentum=0.9)
+#交叉熵损失
+loss=nn.NLLLoss()
+```
+- 超参数
+```
+epochs=100#训练次数
+lr=0.001#学习率
+batch_size=256#批次大小
+iteration=train_data.shape[0]//batch_size
+```
