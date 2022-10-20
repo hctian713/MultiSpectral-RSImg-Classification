@@ -18,4 +18,4 @@
 > - **隐层**：为使得网络足够复杂以能够表达关系信息，共设置结点数分别为40/25/10的3层隐层，激活函数分别为*Relu/Relu/Sigmoid*，前两个*Relu*可以起到增加训练效率的作用。
 > - **输出层和损失函数**：为像素级分类，即图像分割，输出层Softmax结构实现多分类，实际采用*log_softmax*，损失函数为负对数似然损失函数*NLLLoss*。公式如下：
 
-log_softmax=e^xi/(\sum_i\of e^xi\ )\ \ \ \ \ \ \ \ \ NLLLoss=-1/N\ \sum_(k=1)^N\of\begin y_k\ (log_softmax)〗
+log_softmax=\frac{e^{xi}}{\sum_{i}\ e^{xi}}NLLLoss=-\frac{1}{N}\sum_{k=1}^{N}{y_k\left(log_softmax\right)}
