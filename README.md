@@ -25,4 +25,5 @@ $$log\_ softmax = \frac{e^{xi}}{\sum_{i}e^{xi}}~~~~NLLLoss = - \frac{1}{N}{\sum\
 >原始数据tiff无法用`OpenCV`或者`PIL`读取，使用`GDAL`读取原始数据转化为`ndarray`，并按照波段`reshape`为（20,141194）数据。利用`np.isinf`和`np.isnan`进行数据清洗，将无效数据替换为0或1。
 ### 4.2 样本划分与数据增强
 >数据样本数量少且类别非常不均衡，因此采用简单的9：1随机进行训练集和验证集的划分。
+
 >将训练集验证集的数据和标签转换为`pytorch.tensor`格式，同时注意数据必须为`float32`，标签必须为`long`，否则无法进行模型训练。
