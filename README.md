@@ -5,7 +5,9 @@
 
 >数据存在大量Nan Inf干扰项，对实际预测判断没有用处，需进行去除。
 ### 波段1/2/19/18(Output)可视化结果
-<img src="./show/bd1.png" width="200"> <img src="./show/bd2.png" width="200"> <img src="./show/bd19.png" width="200"> <img src="./show/bd18.png" width="200"> 
+<div align="center">
+  <img src="./show/bd1.png" width="200"> <img src="./show/bd2.png" width="200"> <img src="./show/bd19.png" width="200"> <img src="./show/bd18.png" width="200"> 
+</div>
 
 ## 2. 实验条件
 `Pytorch` `Osgeo.gdal` `sklearn` `seaborn`
