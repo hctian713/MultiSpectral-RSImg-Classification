@@ -70,5 +70,5 @@ iteration=train_data.shape[0]//batch_size
 ### 损失曲线和混淆矩阵
 | 原始OutPut | 预测OutPut |
 | :---: | :---: |
-|<img src="./show/bd18.png" width="400">|<img src="./show/bd18.png" width="400">|
+|<img src="./show/bd18.png" width="300">|<img src="./show/bd18.png" width="300">|
 
