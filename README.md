@@ -69,6 +69,6 @@ iteration=train_data.shape[0]//batch_size
 >最终计算得出的精度为***92.768%***
 ### 损失曲线和混淆矩阵
 | 原始OutPut | 预测OutPut |
-| --- | ---: |
-|<img src="./show/bd18.png" width="400">|123|
+| :---: | :---: |
+|<img src="./show/bd18.png" width="400">|<img src="./show/bd18.png" width="400">|
 
