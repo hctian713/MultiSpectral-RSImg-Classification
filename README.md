@@ -71,16 +71,17 @@ iteration=train_data.shape[0]//batch_size
 <div align="center">
 <img src="./show/loss.png" width="300">
 </div>
+
 ### 混淆矩阵
 <div align="center">
 <img src="./show/pre.png" width="300">
 </div>
-### 图像复原
 
+### 图像复原
+<div align="center">
 | 原始OutPut | 预测OutPut |
 | :---: | :---: |
 |<img src="./show/bd18.png" width="300">|<img src="./show/bd18.png" width="300">|
-
 </div>
 
 
