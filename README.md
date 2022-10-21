@@ -70,7 +70,7 @@ iteration=train_data.shape[0]//batch_size
 ### 损失曲线和混淆矩阵
 <div align="center">
 <img src="./show/loss.png" width="300">
-<img src="./show/pre.png" width="300">
+<img src="./show/pre.png" width="400">
 </div>
 
 ### 图像复原
