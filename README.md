@@ -65,3 +65,5 @@ lr=0.001#学习率
 batch_size=256#批次大小
 iteration=train_data.shape[0]//batch_size
 ```
+
+## 5.结果评价
