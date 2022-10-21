@@ -67,13 +67,9 @@ iteration=train_data.shape[0]//batch_size
 ## 5.结果评价
 >由于训练数据进行了数据增强，因此合理的直接采用全部原始数据进行验证。
 >最终计算得出的精度为***92.768%***
-### 损失曲线
+### 损失曲线和混淆矩阵
 <div align="center">
 <img src="./show/loss.png" width="300">
-</div>
-
-### 混淆矩阵
-<div align="center">
 <img src="./show/pre.png" width="300">
 </div>
 
