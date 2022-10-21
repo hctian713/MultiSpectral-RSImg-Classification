@@ -52,7 +52,9 @@ optimizer = torch.optim.SGD(model.parameters(), lr=lr,momentum=0.9)
 #交叉熵损失
 loss=nn.NLLLoss()
 ```
-- 超参数
+
+### 4.4 训练与验证
+训练超参数设置如下，混淆矩阵可视化验证。
 ```
 epochs=100#训练次数
 lr=0.001#学习率
