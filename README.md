@@ -33,7 +33,7 @@ $$log\\_ softmax = \frac{e^{xi}}{\sum_{i}e^{xi}}~~~~NLLLoss = - \frac{1}{N}{\sum
 >将训练集验证集的数据和标签转换为`pytorch.tensor`格式，同时注意数据必须为`float32`，标签必须为`long`，否则无法进行模型训练。
 ### 4.3	网络模型搭建
 - 定义SoftMax网络
-```
+```python
 class Net(nn.Module):
     def __init__(self):
         super(Net, self).__init__()
@@ -48,14 +48,14 @@ class Net(nn.Module):
         a3=F.sigmoid(self.l3(a2))
         output=F.log_softmax(self.l4(a3), dim=1)
         return output
-```
+```python
 - 优化器与损失函数
 ```
 #优化器随机梯度下降 momentum动态梯度下降
 optimizer = torch.optim.SGD(model.parameters(), lr=lr,momentum=0.9)
 #交叉熵损失
 loss=nn.NLLLoss()
-```
+```python
 ### 4.4 训练与验证
 训练超参数设置如下，混淆矩阵可视化验证。
 ```
