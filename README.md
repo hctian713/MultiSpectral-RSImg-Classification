@@ -48,17 +48,17 @@ class Net(nn.Module):
         a3=F.sigmoid(self.l3(a2))
         output=F.log_softmax(self.l4(a3), dim=1)
         return output
-```python
-- 优化器与损失函数
 ```
+- 优化器与损失函数
+```python
 #优化器随机梯度下降 momentum动态梯度下降
 optimizer = torch.optim.SGD(model.parameters(), lr=lr,momentum=0.9)
 #交叉熵损失
 loss=nn.NLLLoss()
-```python
+```
 ### 4.4 训练与验证
 训练超参数设置如下，混淆矩阵可视化验证。
-```
+```python
 epochs=100#训练次数
 lr=0.001#学习率
 batch_size=256#批次大小
